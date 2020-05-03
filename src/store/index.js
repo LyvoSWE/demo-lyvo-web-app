@@ -4,9 +4,12 @@ import axios from 'axios'
 
 Vue.use(Vuex)
 
-const SUBMIT_REQUEST = 'SUBMIT_REQUEST'
-const SUBMIT_SUCCESS = 'SUBMIT_SUCCESS'
-const SUBMIT_FAILURE = 'SUBMIT_FAILURE'
+import {
+  SUBMIT_REQUEST,
+  SUBMIT_SUCCESS,
+  SUBMIT_FAILURE,
+  RESET_ALERT
+} from './mutation-types'
 
 export default new Vuex.Store({
   state: {
@@ -27,6 +30,10 @@ export default new Vuex.Store({
       state.alertMsg = 'Submission failed'
       state.loading = false
       state.alertType = 'error'
+    },
+    [RESET_ALERT](state) {
+      state.alertMsg = ''
+      state.alertType = ''
     }
   },
   actions: {
@@ -38,6 +45,8 @@ export default new Vuex.Store({
       } catch (e) {
         console.log(e)
         commit(SUBMIT_FAILURE)
+      } finally {
+        setTimeout(() => commit(RESET_ALERT), 5000)
       }
     }
   },

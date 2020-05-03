@@ -1,7 +1,7 @@
 <template>
-  <div class="application">
-    <h1>Application</h1>
-    <app-form />
+  <div class="application" align="center" justify="center">
+    <h2>Application</h2>
+    <app-form></app-form>
   </div>
 </template>
 

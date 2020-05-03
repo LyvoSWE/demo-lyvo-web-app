@@ -2,9 +2,14 @@
   <v-form ref="form" v-model="valid">
     <v-container>
       <v-row>
-        <v-col v-for="(field, i) in APPLICATION_FIELDS" :key="i" cols="12" :md="field.md">
+        <v-col
+          v-for="(field, i) in APPLICATION_FIELDS"
+          :key="i"
+          cols="12"
+          :sm="field.md"
+        >
           <v-text-field
-            v-if="field.type == 'textField'"
+            v-if="field.type === 'textField'"
             v-model="applicant[field.name]"
             :rules="field.rules"
             :label="field.label"
@@ -16,16 +21,35 @@
             :label="field.label"
             :items="field.items"
           />
+          <v-combobox
+            v-else-if="field.type === 'combobox'"
+            v-model="applicant[field.name]"
+            :rules="field.rules"
+            :label="field.label"
+            :items="field.items"
+            multiple
+            hide-selected
+            persistent-hint
+            small-chips
+            clearable
+          />
         </v-col>
       </v-row>
-      <v-row>
-        <v-btn color="primary" @click="submitApplication">Submit</v-btn>
-      </v-row>
+      <v-btn
+        :disabled="$store.state.loading"
+        :loading="$store.state.loading"
+        block
+        color="primary"
+        class="mr-4"
+        @click="submitApplication"
+        >Submit</v-btn
+      >
     </v-container>
   </v-form>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import { constants } from '../utils/constants'
 export default {
   data() {

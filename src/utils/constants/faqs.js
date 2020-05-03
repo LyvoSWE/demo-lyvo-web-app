@@ -19,7 +19,8 @@ export const FAQS = [
   },
   {
     title: 'Is there free food?',
-    description: 'Yes, food, drinks, performances, and workshops are provided in all three days.'
+    description:
+      'Yes, food, drinks, performances, and workshops are provided in all three days.'
   },
   {
     title: 'What should I wear?',
