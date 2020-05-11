@@ -6,6 +6,8 @@ import vuetify from './plugins/vuetify'
 
 Vue.config.productionTip = false
 
+import '@/assets/global.css'
+
 new Vue({
   router,
   store,
