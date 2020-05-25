@@ -2,12 +2,7 @@
   <v-form ref="form" v-model="valid">
     <v-container>
       <v-row>
-        <v-col
-          v-for="(field, i) in APPLICATION_FIELDS"
-          :key="i"
-          cols="12"
-          :sm="field.md"
-        >
+        <v-col v-for="(field, i) in APPLICATION_FIELDS" :key="i" cols="12" :sm="field.md">
           <v-text-field
             v-if="field.type === 'textField'"
             v-model="applicant[field.name]"
@@ -50,7 +45,7 @@
 
 <script>
 import { mapActions } from 'vuex'
-import { constants } from '../utils/constants'
+import constants from '../utils/constants'
 export default {
   data() {
     return {

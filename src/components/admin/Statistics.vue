@@ -24,7 +24,7 @@
 import Highcharts from 'highcharts'
 import { genComponent } from 'vue-highcharts'
 
-import { constants } from '@/utils/constants'
+import constants from '@/utils/constants'
 
 export default {
   name: 'Statistics',

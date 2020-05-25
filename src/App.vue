@@ -31,9 +31,8 @@
           :key="i"
           :to="navLink.link"
           active-class="primary--text"
+          >{{ navLink.name }}</v-btn
         >
-          {{ navLink.name }}
-        </v-btn>
       </v-toolbar-items>
 
       <v-spacer />
@@ -74,7 +73,7 @@
 </template>
 
 <script>
-import { constants } from '@/utils/constants'
+import constants from '@/utils/constants'
 export default {
   name: 'App',
   data() {
