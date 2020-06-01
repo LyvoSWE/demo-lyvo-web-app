@@ -1,5 +1,7 @@
 # demo-lyvo-app
 
+![build-deploy](https://github.com/LyvoSWE/demo-lyvo-web-app/workflows/build-deploy/badge.svg)
+
 ## Project setup
 
 ```
