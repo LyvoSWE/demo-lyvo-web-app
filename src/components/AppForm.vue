@@ -2,15 +2,22 @@
   <v-form ref="form" v-model="valid">
     <v-container>
       <v-row>
-        <v-col v-for="(field, i) in APPLICATION_FIELDS" :key="i" cols="12" :sm="field.md">
+        <v-col
+          v-for="(field, i) in APPLICATION_FIELDS"
+          :key="i"
+          cols="12"
+          :sm="field.md"
+        >
           <v-text-field
             v-if="field.type === 'textField'"
+            :id="field.name"
             v-model="applicant[field.name]"
             :rules="field.rules"
             :label="field.label"
           />
           <v-select
             v-else-if="field.type === 'select'"
+            :id="field.name"
             v-model="applicant[field.name]"
             :rules="field.rules"
             :label="field.label"
@@ -18,6 +25,7 @@
           />
           <v-combobox
             v-else-if="field.type === 'combobox'"
+            :id="field.name"
             v-model="applicant[field.name]"
             :rules="field.rules"
             :label="field.label"
@@ -37,8 +45,7 @@
         color="primary"
         class="mr-4"
         @click="submitApplication"
-        >Submit</v-btn
-      >
+      >Submit</v-btn>
     </v-container>
   </v-form>
 </template>
